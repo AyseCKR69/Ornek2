@@ -5,17 +5,14 @@ import { ListResponseModel } from '../models/listResponseModel';
 import { Todo } from '../models/todo';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TodoService {
-
   apiUrl = 'https://jsonplaceholder.typicode.com/todos';
 
-  constructor(private httpClient: HttpClient) {  }
+  constructor(private httpClient: HttpClient) {}
 
-  getTodos():Observable<ListResponseModel<Todo>> {
-    return this.httpClient
-      .get<ListResponseModel<Todo>>(this.apiUrl);
-      
+  getTodos(): Observable<Todo[]> {
+    return this.httpClient.get<Todo[]>(this.apiUrl);
   }
 }
