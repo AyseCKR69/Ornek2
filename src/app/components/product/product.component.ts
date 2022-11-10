@@ -20,7 +20,7 @@ export class ProductComponent implements OnInit {
   // asenkron olduğu için subscrible yazıyoruz
   getTodos() {
     this.todoService.getTodos().subscribe((response) => {
-      this.todos = response;
+      this.todos = response.data;
       this.dataLoaded=true;
     });
   }
