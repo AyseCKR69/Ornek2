@@ -19,13 +19,14 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
 
     this.getTodos();
-    // this.activatedRoute.params.subscribe(params=>{
-    //   if(params["categoryId"]){
-    //     this.getTodosByCategory(params["categoryId"])
-    //   }else{
-    //     this.getTodos()
-    //   }
-    // })
+    
+  //    this.activatedRoute.params.subscribe(params=>{
+  //    if(params["categoryId"]){
+  //     this.getTodosByCategory(params["categoryId"])
+  //     }else{
+  //        this.getTodos()
+  //     }
+  //  })
   }
 
   // asenkron olduğu için subscrible yazıyoruz
@@ -43,5 +44,9 @@ export class ProductComponent implements OnInit {
       this.todos = response;
       this.dataLoaded=true;
     });
+  }
+
+  addToCart(todo:Todo){
+
   }
 }

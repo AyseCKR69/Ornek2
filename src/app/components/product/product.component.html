@@ -18,13 +18,17 @@
             <th>KDV'li Fiyat(pipe Örnek)</th>
             <th>Başlık</th>
             <th>Tamamlama</th>
+            <th></th>
         </tr>
     </thead>
-    <tr *ngFor="let todo of todos" |filterPipe:filterText >
+    <tbody>
+    <tr *ngFor="let todo of todos |filterPipe:filterText ">
         <td>{{todo.id}}</td>
         <td>{{todo.userId}}</td>
         <td>{{todo.userId |attAdded:10 |currency}}</td>
         <td>{{todo.title |uppercase}}</td>
         <td>{{todo.completed}}</td>
+        <td><button (click)="addToCart(todo)" type="button" class="btn btn-success">Sepete Ekle</button></td>
     </tr>
+  </tbody>
 </table>
