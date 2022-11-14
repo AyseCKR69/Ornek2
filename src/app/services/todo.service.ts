@@ -13,6 +13,14 @@ export class TodoService {
   constructor(private httpClient: HttpClient) {}
 
   getTodos(): Observable<Todo[]> {
+    //let newPath=this.apiUrl+"adres"
     return this.httpClient.get<Todo[]>(this.apiUrl);
   }
+
+  getTodosByCategory(categoryId:number): Observable<Todo[]> {
+    //let newPath=this.apiUrl+"adres"+categoryId
+    //örnek url=products/getbycategory?categoryId=1 gibi
+    return this.httpClient.get<Todo[]>(this.apiUrl);
+  }
+
 }
