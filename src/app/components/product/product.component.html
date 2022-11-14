@@ -1,19 +1,30 @@
 <div *ngIf="dataLoaded==false" class="spinner-grow" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
+
+  <div class="mb-3">
+    <label for="filterText" class="form-label">ürün ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Arama İfadesi Giriniz">
+  </div>
+  <div ngIf="filterText.length>2" class="alert alert-success">
+{{filterText}} aradınız
+  </div>
+
 <table *ngIf="dataLoaded!=false" class="table">
     <thead>
         <tr>
             <th>İd</th>
             <th>Kullanıcı id</th>
+            <th>KDV'li Fiyat(pipe Örnek)</th>
             <th>Başlık</th>
             <th>Tamamlama</th>
         </tr>
     </thead>
-    <tr *ngFor="let todo of todos" >
+    <tr *ngFor="let todo of todos" |filterPipe:filterText >
         <td>{{todo.id}}</td>
         <td>{{todo.userId}}</td>
-        <td>{{todo.title}}</td>
+        <td>{{todo.userId |attAdded:10 |currency}}</td>
+        <td>{{todo.title |uppercase}}</td>
         <td>{{todo.completed}}</td>
     </tr>
 </table>

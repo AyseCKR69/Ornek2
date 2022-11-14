@@ -11,18 +11,21 @@ import { TodoService } from 'src/app/services/todo.service';
 export class ProductComponent implements OnInit {
   todos: Todo[] = [];
   dataLoaded=false;
+  filterText="";
 //ActivatedRoute=aktifleştirilmiş ruut demek yani url okuma
   constructor(private todoService: TodoService,
     private activatedRoute:ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params=>{
-      if(params["categoryId"]){
-        this.getTodosByCategory(params["categoryId"])
-      }else{
-        this.getTodos()
-      }
-    })
+
+    this.getTodos();
+    // this.activatedRoute.params.subscribe(params=>{
+    //   if(params["categoryId"]){
+    //     this.getTodosByCategory(params["categoryId"])
+    //   }else{
+    //     this.getTodos()
+    //   }
+    // })
   }
 
   // asenkron olduğu için subscrible yazıyoruz
