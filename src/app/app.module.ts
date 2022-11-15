@@ -1,7 +1,8 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import{FormsModule} from "@angular/forms"
+import {FormsModule, ReactiveFormsModule} from "@angular/forms"
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,8 @@ import { CommonModule, NgFor } from '@angular/common';
 import { ProductComponent } from './components/product/product.component';
 import { AttAddedPipe } from './pipes/att-added.pipe';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -27,9 +30,14 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgFor,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass:"toast-bottom-right"
+    })
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
