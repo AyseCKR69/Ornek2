@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Todo } from 'src/app/models/todo';
+import { CartService } from 'src/app/services/cart.service';
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class ProductComponent implements OnInit {
   //ActivatedRoute=aktifleştirilmiş ruut demek yani url okuma
   constructor(
     private todoService: TodoService,
-
+    private activatedRoute:ActivatedRoute,
+    private cartService:CartService,
     private toastrService: ToastrService
   ) {}
 
@@ -51,5 +53,6 @@ export class ProductComponent implements OnInit {
   addToCart(todo: Todo) {
     
     this.toastrService.success('Sepete Eklendi', todo.title);
+    this.cartService.addToCart(todo);
   }
 }

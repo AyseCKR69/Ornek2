@@ -13,6 +13,7 @@ import { ProductComponent } from './components/product/product.component';
 import { AttAddedPipe } from './pipes/att-added.pipe';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 import { ToastrModule } from 'ngx-toastr';
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 
 
 
@@ -23,7 +24,8 @@ import { ToastrModule } from 'ngx-toastr';
     CategoryComponent,
     NaviComponent,
     AttAddedPipe,
-    FilterPipePipe
+    FilterPipePipe,
+    CartSummaryComponent
   
   ],
   imports: [
